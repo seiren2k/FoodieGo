@@ -9,18 +9,7 @@ class Admin_model {
         $this->db = Database::getInstance()->getConnection();
     }
 
-    /**
-     * Add a new food item to the database.
-     *
-     * @param string $title       The title of the food item.
-     * @param string $description The description of the food item.
-     * @param float  $price       The price of the food item.
-     * @param string $image_name  The name of the food item's image file.
-     * @param int    $category_id The category ID of the food item.
-     * @param string $featured    Whether the food item is featured (Yes/No).
-     * @param string $active      Whether the food item is active (Yes/No).
-     * @return bool               True on success, false on failure.
-     */
+    // Add a new food item to the database.
     public function add_food($title, $description, $price, $image_name, $category_id, $featured, $active) {
         // Sanitize input data
         $title = mysqli_real_escape_string($this->db, $title);
@@ -37,12 +26,7 @@ class Admin_model {
         return mysqli_query($this->db, $query);
     }
 
-    /**
-     * Delete a food item from the database by ID.
-     *
-     * @param int $id The ID of the food item to delete.
-     * @return bool   True on success, false on failure.
-     */
+    // Delete a food item from the database by ID.
     public function delete_food($id) {
         // Sanitize the input ID
         $id = mysqli_real_escape_string($this->db, $id);
