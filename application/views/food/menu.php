@@ -16,6 +16,13 @@ require_once 'application/views/templates/header.php';
     <div class="container">
         <h2 class="text-center">Food Menu</h2>
 
+        <!-- Display success/error messages -->
+        <?php if (!empty($message)): ?>
+            <div class="alert" style="background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 20px; border: 1px solid #c3e6cb; border-radius: 5px;">
+                <?php echo $message; ?>
+            </div>
+        <?php endif; ?>
+
         <?php if (!empty($food_items)): ?>
             <?php foreach ($food_items as $food): ?>
                 <div class="food-menu-box">

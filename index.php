@@ -15,8 +15,8 @@ $request = str_replace($base_path, '', $request);
 switch ($request) {
     case '':
     case '/':
-        require 'application/controllers/food.php';
-        $controller = new Food();
+        require 'application/controllers/admin.php';
+        $controller = new Admin();
         $controller->menu();
         break;
     
@@ -31,6 +31,24 @@ switch ($request) {
         $controller = new Auth();
         $controller->logout();
         break;
+
+        case 'add-food':
+            require 'application/controllers/admin.php';
+            $controller = new Admin();
+            $controller->add();
+            break;
+        
+        case 'delete-food':
+            require 'application/controllers/admin.php';
+            $controller = new Admin();
+            $controller->delete();
+            break;
+        
+            case 'food-details':
+                require 'application/controllers/admin.php';
+                $controller = new Admin();
+                $controller->details($id);
+                break;
         
     default:
         http_response_code(404);
