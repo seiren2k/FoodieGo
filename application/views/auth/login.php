@@ -1,43 +1,41 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<?php require_once __DIR__ . '/../templates/header.php'; ?>
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+include(__DIR__ . '/../templates/header.php');
+?>
 
-<div class="login-container">
-    <div class="login-box">
-        <h2>Login to FoodieGo</h2>
+<section class="auth-section">
+    <div class="container">
+        <h2 class="text-center">Login</h2>
         
-        <?php if (!empty($error)): ?>
-            <div class="error-message">
-                <?php echo $error; ?>
-            </div>
+        <?php if (isset($_GET['registered']) && $_GET['registered'] == '1') : ?>
+            <div class="success-msg">Registration successful! Please login with your credentials.</div>
+        <?php endif; ?>
+        
+        <?php if (!empty($error)) : ?>
+            <div class="error-msg"><?php echo $error; ?></div>
         <?php endif; ?>
 
-        <form action="login" method="POST" class="login-form">
+        <form action="<?php echo SITEURL; ?>login" method="POST" class="form-container">
             <div class="form-group">
-                <label for="username">Username/Email:</label>
-                <input type="text" 
-                       name="username" 
-                       id="username" 
-                       required 
-                       placeholder="Enter your username or email">
+                <label for="username">Email*</label>
+                <input type="email" name="username" id="username" required 
+                       value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>">
             </div>
 
             <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" 
-                       name="password" 
-                       id="password" 
-                       required 
-                       placeholder="Enter your password">
+                <label for="password">Password*</label>
+                <input type="password" name="password" id="password" required>
             </div>
 
-            <button type="submit" class="btn-login">Login</button>
+            <div class="form-group">
+                <input type="submit" name="submit" value="Login" class="btn btn-primary">
+            </div>
+
+            <div class="form-footer">
+                Don't have an account? <a href="<?php echo SITEURL; ?>register">Register here</a>
+            </div>
         </form>
-
-        <div class="login-info">
-            <p>Admin Login: Use your admin credentials</p>
-            <p>Customer Login: Use your email address</p>
-        </div>
     </div>
-</div>
+</section>
 
-<?php require_once __DIR__ . '/../templates/footer.php'; ?>
+<?php include(__DIR__ . '/../templates/footer.php'); ?>

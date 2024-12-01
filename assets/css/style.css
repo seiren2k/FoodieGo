@@ -3,43 +3,52 @@
     --red: #FF0000;
     --white: #FFFFFF;
     --black: #000000;
+    --font-family: Arial, sans-serif;
+    --font-size-base: 16px;
+    --font-size-lg: 1.2rem;
+    --font-size-xl: 2rem;
+    --font-weight-bold: bold;
+    --border-radius: 25px;
+    --transition-speed: 0.3s;
+    --box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    --box-shadow-focus: 0 3px 8px rgba(255, 255, 255, 0.2);
 }
 
+/* Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family);
 }
 
 body {
     background-color: var(--white);
 }
 
-/* Header Styles */
+/* Navbar */
 .navbar {
     background-color: var(--black);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem 0;
+    padding: 1% 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
 }
 
 .logo a {
     color: var(--red);
     text-decoration: none;
-    font-size: 32px;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.logo a:hover {
-    color: var(--white);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
 }
 
 .logo img {
@@ -47,32 +56,73 @@ body {
 }
 
 .menu {
-    display: inline-block;
-    float: none;
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .menu ul {
     list-style: none;
     display: flex;
-    justify-content: flex-end;
     gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    display: flex;
+    align-items: center;
 }
 
 .menu a {
     color: var(--white);
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-    font-size: 18px;
+    font-weight: var(--font-weight-bold);
+    transition: all var(--transition-speed) ease;
+    font-size: var(--font-size-base);
     padding: 0.5rem 1rem;
+    white-space: nowrap;
 }
 
 .menu a:hover {
     color: var(--black);
     background-color: var(--red);
+    border-radius: 4px;
 }
 
-/* Food Search Section */
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-left: 2rem;
+}
+
+.btn-auth, .btn-auth-primary {
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--red);
+    background: transparent;
+    font-weight: var(--font-weight-bold);
+    transition: all var(--transition-speed) ease;
+}
+
+.btn-auth:hover, .btn-auth-primary:hover {
+    background-color: var(--red);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.btn-auth-primary {
+    background-color: var(--red);
+    color: var(--white);
+}
+
+.btn-auth-primary:hover {
+    background-color: transparent;
+    color: var(--red);
+    border-color: var(--red);
+}
+
+/* Food Search */
 .food-search {
     background-color: var(--black);
     padding: 4rem 0;
@@ -82,16 +132,16 @@ body {
 .food-search input[type="search"] {
     width: 50%;
     padding: 1rem 1.5rem;
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
     border: none;
-    border-radius: 25px;
+    border-radius: var(--border-radius);
     outline: none;
-    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+    box-shadow: var(--box-shadow);
+    transition: all var(--transition-speed) ease;
 }
 
 .food-search input[type="search"]:focus {
-    box-shadow: 0 3px 8px rgba(255, 255, 255, 0.2);
+    box-shadow: var(--box-shadow-focus);
     width: 52%;
 }
 
@@ -100,11 +150,11 @@ body {
     color: var(--white);
     padding: 1rem 2rem;
     border: none;
-    border-radius: 25px;
+    border-radius: var(--border-radius);
     margin-left: 1rem;
     cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
+    font-weight: var(--font-weight-bold);
+    transition: all var(--transition-speed) ease;
 }
 
 .food-search .btn:hover {
@@ -113,7 +163,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Food Menu Section */
+/* Food Menu */
 .food-menu {
     padding: 4rem 0;
 }
@@ -152,13 +202,13 @@ body {
 
 .food-menu-desc h4 {
     color: var(--red);
-    font-size: 1.5rem;
+    font-size: var(--font-size-lg);
     margin-bottom: 0.5rem;
 }
 
 .food-price {
     color: var(--red);
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
 }
@@ -194,7 +244,7 @@ body {
 .footer-section h3 {
     color: var(--red);
     margin-bottom: 20px;
-    font-size: 1.2em;
+    font-size: var(--font-size-lg);
 }
 
 .footer-section ul {
@@ -209,7 +259,7 @@ body {
 .footer-section a {
     color: var(--white);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed) ease;
 }
 
 .footer-section a:hover {
@@ -222,15 +272,15 @@ body {
 }
 
 .social-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     width: 35px;
     height: 35px;
     border-radius: 50%;
     background-color: var(--white);
     color: var(--black) !important;
-    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-speed) ease;
 }
 
 .social-link:hover {
@@ -246,94 +296,97 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .footer-section {
-        min-width: 100%;
-        margin: 20px 0;
-        text-align: center;
-    }
-    
-    .social-links {
-        justify-content: center;
-    }
-}
-
-/* Login Styles */
-.login-container {
-    min-height: calc(100vh - 140px);
+/* Login & Registration Forms */
+.login-container, .register {
+    padding: 3rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
 }
 
-.login-box {
-    background-color: var(--white);
+.form-container {
+    max-width: 500px;
     padding: 2rem;
+    background: var(--white);
     border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.login-box h2 {
-    color: var(--red);
-    text-align: center;
+.form-group {
     margin-bottom: 1.5rem;
 }
 
-.login-form label {
-    display: block;
-    margin-bottom: 0.5rem;
+.form-group label {
+    font-weight: var(--font-weight-bold);
     color: var(--black);
 }
 
-.login-form input {
+.form-group input {
     width: 100%;
     padding: 0.8rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--black);
+    border: 1px solid #ddd;
     border-radius: 4px;
+    font-size: var(--font-size-base);
 }
 
-.login-form input:focus {
+.form-group input:focus {
     border-color: var(--red);
     outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1);
 }
 
-.login-form button {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: var(--red);
+.btn-primary {
+    background: var(--red);
     color: var(--white);
+    padding: 0.8rem 2rem;
     border: none;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    width: 100%;
+    transition: all var(--transition-speed) ease;
+}
+
+.btn-primary:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+}
+
+.error-msg, .success-msg {
+    padding: 1rem;
     border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
-.login-form button:hover {
-    background-color: var(--black);
+.error-msg {
+    background: #ffe6e6;
+    color: #cc0000;
 }
 
-.error-message {
-    background-color: var(--white);
+.success-msg {
+    background: #e6ffe6;
+    color: #006600;
+}
+
+.form-footer a {
     color: var(--red);
-    border: 1px solid var(--red);
-    padding: 0.8rem;
-    border-radius: 4px;
-    margin-bottom: 1rem;
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
 }
 
-/* 404 Page Styles */
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* 404 Page */
 .error-404 {
-    min-height: calc(100vh - 140px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    min-height: calc(100vh - 140px);
     padding: 2rem;
 }
 
@@ -348,11 +401,20 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* Responsive Design */
+/* Responsive Styles */
 @media (max-width: 768px) {
+    .footer-section {
+        min-width: 100%;
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
     .food-menu-box {
         flex-direction: column;
-        align-items: center;
         text-align: center;
     }
 
@@ -371,18 +433,4 @@ body {
         text-align: center;
         gap: 1rem;
     }
-}
-
-/* Utility Classes */
-.clearfix {
-    clear: both;
-}
-
-.error {
-    color: var(--red);
-    background-color: var(--white);
-    border: 1px solid var(--red);
-    padding: 1rem;
-    border-radius: 5px;
-    margin: 1rem 0;
 }
