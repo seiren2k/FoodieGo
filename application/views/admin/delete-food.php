@@ -1,6 +1,6 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
-<div class="container" style="width: 40%; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); background-color: #f8d7da;">
+<div class="container" style="width: 40%; margin: 0 auto; padding: 30px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); background-color: #f8d7da;">
     <h2 class="form-title" style="text-align: center; color: #721c24; font-family: Arial, sans-serif; margin-bottom: 20px;">Delete Food Item</h2>
 
     <form action="delete-food" method="POST" class="styled-form" style="font-family: Arial, sans-serif;">
