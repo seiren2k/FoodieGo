@@ -1,0 +1,509 @@
+/* Global Styles */
+:root {
+    /* Defining CSS variables for consistent color scheme, font settings, and spacing */
+    --red: #FF0000;
+    --white: #FFFFFF;
+    --black: #000000;
+    --font-family: Arial, sans-serif;
+    --font-size-base: 16px;
+    --font-size-lg: 1.2rem;
+    --font-size-xl: 2rem;
+    --font-weight-bold: bold;
+    --border-radius: 25px;
+    --transition-speed: 0.3s;
+    --box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    --box-shadow-focus: 0 3px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Base Styles */
+* {
+    /* Applying basic reset to remove default margins and padding, and using border-box for box-sizing */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family); /* Applying global font-family */
+}
+
+body {
+    /* Setting body background color */
+    background-color: var(--white);
+}
+
+/* Navbar */
+.navbar {
+    /* Styling the navbar with black background, sticky positioning, and padding */
+    background-color: var(--black);
+    padding: 1% 0;
+    position: sticky;
+    top: 0;
+    z-index: 999; /* Ensuring navbar stays above other content */
+}
+
+.navbar .container {
+    /* Aligning navbar content (logo and menu) using flexbox */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; /* Centering the navbar container */
+}
+
+.logo a {
+    /* Styling the logo link with red color, bold font weight, and larger font size */
+    color: var(--red);
+    text-decoration: none;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.logo img {
+    /* Ensuring the logo image maintains a maximum height */
+    max-height: 50px;
+}
+
+.menu {
+    /* Flex container for navbar menu */
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu ul {
+    /* Styling the navbar list to be inline, without bullet points */
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    /* Centering items vertically within the navbar menu */
+    display: flex;
+    align-items: center;
+}
+
+.menu a {
+    /* Basic styling for navbar links: white text, bold font, and padding */
+    color: var(--white);
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-base);
+    padding: 0.5rem 1rem;
+    transition: color var(--transition-speed) ease, background-color var(--transition-speed) ease, border-radius var(--transition-speed) ease;
+}
+
+.menu a:hover {
+    /* Hover effect: change color to black and background to red */
+    color: var(--black);
+    background-color: var(--red);
+    border-radius: 4px; /* Rounded corners on hover */
+}
+
+/* Auth Buttons */
+.auth-buttons {
+    /* Flexbox layout for authentication buttons (login/register) */
+    display: flex;
+    gap: 1rem;
+    margin-left: 2rem;
+}
+
+.btn-auth,
+.btn-auth-primary {
+    /* Basic button styling for both auth buttons */
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--red);
+    background: transparent;
+    font-weight: var(--font-weight-bold);
+    transition: all var(--transition-speed) ease;
+}
+
+.btn-auth:hover, 
+.btn-auth-primary:hover {
+    /* Hover effect: background color change and subtle raise */
+    background-color: var(--red);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.btn-auth-primary {
+    /* Primary button style (default red background) */
+    background-color: var(--red);
+    color: var(--white);
+}
+
+.btn-auth-primary:hover {
+    /* Invert the primary button style on hover (transparent background with red text) */
+    background-color: transparent;
+    color: var(--red);
+    border-color: var(--red);
+}
+
+/* Food Search Section */
+.food-search {
+    /* Styling the food search section with a black background and centered text */
+    background-color: var(--black);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.food-search input[type="search"] {
+    /* Styling the search input with padding, border radius, and transition for width and box shadow */
+    width: 50%;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: var(--box-shadow);
+    transition: width var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.food-search input[type="search"]:focus {
+    /* Focus effect on search input (increase width and shadow effect) */
+    box-shadow: var(--box-shadow-focus);
+    width: 52%;
+}
+
+.food-search .btn {
+    /* Styling the search button with red background and white text */
+    background: var(--red);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 25px;
+    margin-left: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.food-search .btn:hover {
+    /* Hover effect for the search button (inverts color scheme) */
+    background: var(--white);
+    color: var(--red);
+    transform: translateY(-2px);
+}
+
+/* Food Menu */
+.food-menu {
+    /* Padding for food menu section */
+    padding: 4rem 0;
+}
+
+.text-center {
+    /* Centered red text style for titles or headings */
+    text-align: center;
+    color: var(--red);
+    margin-bottom: 2rem;
+}
+
+.food-menu-box {
+    /* Flexbox container for individual food items */
+    display: flex;
+    background-color: var(--white);
+    margin: 2rem 0;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for each item */
+}
+
+.food-menu-img {
+    /* Ensuring food images maintain a square aspect ratio */
+    width: 150px;
+    height: 150px;
+    margin-right: 2rem;
+}
+
+.food-menu-img img {
+    /* Ensuring the image covers the available space within the box */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.food-menu-desc {
+    /* Flex container for text description of food items */
+    flex: 1;
+}
+
+.food-menu-desc h4 {
+    /* Styling the food name with red color and larger font size */
+    color: var(--red);
+    font-size: var(--font-size-lg);
+    margin-bottom: 0.5rem;
+}
+
+.food-price {
+    /* Styling the food price in red and bold */
+    color: var(--red);
+    font-weight: var(--font-weight-bold);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.food-detail {
+    /* General styling for food item details */
+    color: var(--black);
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+    /* Black footer background with white text */
+    background-color: var(--black);
+    color: var(--white);
+    padding: 40px 0 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    /* Flex container for footer content, allowing for responsive sections */
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.footer-section {
+    /* Flex behavior for footer sections with minimum width */
+    flex: 1;
+    min-width: 250px;
+    margin: 20px;
+}
+
+.footer-section h3 {
+    /* Styling for section headers in the footer */
+    color: var(--red);
+    margin-bottom: 20px;
+    font-size: var(--font-size-lg);
+}
+
+.footer-section ul {
+    /* List styling for footer navigation items */
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    /* Spacing between list items in footer */
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    /* Styling footer links */
+    color: var(--white);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+.footer-section a:hover {
+    /* Hover effect for footer links */
+    color: var(--red);
+}
+
+.social-links {
+    /* Flex layout for social media icons */
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    /* Styling for social media link icons (round buttons) */
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: var(--white);
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.social-link:hover {
+    /* Hover effect for social media icons (change background and text color) */
+    background-color: var(--red);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    /* Styling for footer bottom section (copyright or legal text) */
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Login & Registration Forms */
+.login-container, 
+.register {
+    /* Centering login and registration forms vertically and horizontally */
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 0;
+    flex-direction: column;
+}
+
+.form-container {
+    /* Form container styling with padding, border radius, and shadow */
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.form-group {
+    /* Spacing between form groups */
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    /* Label styling with bold font and black color */
+    font-weight: var(--font-weight-bold);
+    color: var(--black);
+}
+
+.form-group input {
+    /* Input field styling (full-width, padding, border radius) */
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: var(--font-size-base);
+}
+
+.form-group input:focus {
+    /* Focus effect for input fields (red border and shadow) */
+    border-color: var(--red);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1);
+}
+
+.btn-primary {
+    /* Primary button styling (red background, white text) */
+    background: var(--red);
+    color: var(--white);
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    width: 100%;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.btn-primary:hover {
+    /* Hover effect for the primary button (slightly darker red) */
+    background: #cc0000;
+    transform: translateY(-2px);
+}
+
+.error-msg, 
+.success-msg {
+    /* Styling for error and success message boxes */
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.error-msg {
+    /* Styling for error message box (light red background, dark red text) */
+    background: #ffe6e6;
+    color: #cc0000;
+}
+
+.success-msg {
+    /* Styling for success message box (light green background, dark green text) */
+    background: #e6ffe6;
+    color: #006600;
+}
+
+.form-footer a {
+    /* Styling links in the form footer */
+    color: var(--red);
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+}
+
+.form-footer a:hover {
+    /* Hover effect for links (underline) */
+    text-decoration: underline;
+}
+
+/* 404 Page */
+.error-404 {
+    /* Centering content vertically and horizontally for the 404 error page */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: calc(100vh - 140px);
+    padding: 2rem;
+}
+
+.error-404 h1 {
+    /* Styling for the 404 error heading (large red text) */
+    color: var(--red);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.error-404 p {
+    /* Styling for the 404 error message text */
+    color: var(--black);
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Adjusting footer sections for smaller screen sizes */
+    .footer-section {
+        min-width: 100%;
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .social-links {
+        /* Centering social icons in the footer on smaller screens */
+        justify-content: center;
+    }
+
+    .food-menu-box {
+        /* Stack food items vertically on smaller screens */
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .food-menu-img {
+        /* Adjusting image placement for smaller screens */
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .food-search input[type="search"] {
+        /* Expanding search input width on smaller screens */
+        width: 80%;
+        margin-bottom: 1rem;
+    }
+
+    .menu ul {
+        /* Stacking navbar menu items vertically on smaller screens */
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}
