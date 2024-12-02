@@ -1,5 +1,20 @@
 <?php
-// Header section
+/**
+ * Food Menu Page
+ * 
+ * Displays the food menu along with search functionality. The page fetches food item details
+ * and displays them dynamically. If no food items are found, an appropriate message is shown.
+ * 
+ * PHP Version: 7.4 or higher
+ * 
+ * @category Views
+ * @package  FoodieGo
+ * @author   Pahela Chakma
+ * @license  MIT License
+ * @link     
+ */
+
+ // Header section
 require_once 'application/views/templates/header.php';
 ?>
 

@@ -1,0 +1,60 @@
+\doxysection{application/views/order/order.php File Reference}
+\hypertarget{views_2order_2order_8php}{}\label{views_2order_2order_8php}\index{application/views/order/order.php@{application/views/order/order.php}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_foodie_go}{Foodie\+Go}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{views_2order_2order_8php_a8f58322db30fdc9ba21dc7b120e5e6b3}{\$db\+Instance}} = \mbox{\hyperlink{class_database_a8399325825e893103c463e644f817f86}{Database\+::get\+Instance}}()
+\item 
+\mbox{\hyperlink{views_2order_2order_8php_aa8a5a87b9c1a6a0819b88447cbe41877}{\$conn}} = \$db\+Instance-\/$>$get\+Connection()
+\item 
+\mbox{\hyperlink{views_2order_2order_8php_a882dd7916d55f7301da2260aafda4384}{if}}(isset(\$\+\_\+\+GET\mbox{[}\textquotesingle{}food\+\_\+id\textquotesingle{}\mbox{]})) \mbox{\hyperlink{views_2order_2order_8php_ad950c952d1ae3bb92f9bc574dfe38ee2}{else}}
+\item 
+\mbox{\hyperlink{views_2order_2order_8php_a882dd7916d55f7301da2260aafda4384}{if}} ( \$image\+\_\+name=="{}"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{views_2order_2order_8php_aa8a5a87b9c1a6a0819b88447cbe41877}\index{order.php@{order.php}!\$conn@{\$conn}}
+\index{\$conn@{\$conn}!order.php@{order.php}}
+\doxysubsubsection{\texorpdfstring{\$conn}{\$conn}}
+{\footnotesize\ttfamily \label{views_2order_2order_8php_aa8a5a87b9c1a6a0819b88447cbe41877} 
+\$conn = \$db\+Instance-\/$>$get\+Connection()}
+
+\Hypertarget{views_2order_2order_8php_a8f58322db30fdc9ba21dc7b120e5e6b3}\index{order.php@{order.php}!\$dbInstance@{\$dbInstance}}
+\index{\$dbInstance@{\$dbInstance}!order.php@{order.php}}
+\doxysubsubsection{\texorpdfstring{\$dbInstance}{\$dbInstance}}
+{\footnotesize\ttfamily \label{views_2order_2order_8php_a8f58322db30fdc9ba21dc7b120e5e6b3} 
+\$db\+Instance = \mbox{\hyperlink{class_database_a8399325825e893103c463e644f817f86}{Database\+::get\+Instance}}()}
+
+\Hypertarget{views_2order_2order_8php_ad950c952d1ae3bb92f9bc574dfe38ee2}\index{order.php@{order.php}!else@{else}}
+\index{else@{else}!order.php@{order.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \label{views_2order_2order_8php_ad950c952d1ae3bb92f9bc574dfe38ee2} 
+\mbox{\hyperlink{views_2order_2order_8php_a882dd7916d55f7301da2260aafda4384}{if}} (isset( \$\+\_\+\+GET\mbox{[} \textquotesingle{}food\+\_\+id\textquotesingle{}\mbox{]})) else}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ header(\textcolor{stringliteral}{'location:'}\ .\ \mbox{\hyperlink{config_2config_8php_a56e1f76d7082e0756d531173ee9946fa}{SITEURL}})}
+
+\end{DoxyCode}
+Fetch food details based on the provided food ID.
+
+@global mysqli \$conn The database connection instance.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & Redirects to the homepage if the food ID is invalid. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{views_2order_2order_8php_a882dd7916d55f7301da2260aafda4384}\index{order.php@{order.php}!if@{if}}
+\index{if@{if}!order.php@{order.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily \label{views_2order_2order_8php_a882dd7916d55f7301da2260aafda4384} 
+if(\$image\+\_\+name=="{}"{}) (\begin{DoxyParamCaption}\item[{}]{\$image\+\_\+name}{ = {\ttfamily =~"{}"{}}}\end{DoxyParamCaption})}
+

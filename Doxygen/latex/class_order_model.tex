@@ -1,0 +1,71 @@
+\doxysection{Order\+Model Class Reference}
+\hypertarget{class_order_model}{}\label{class_order_model}\index{OrderModel@{OrderModel}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_order_model_a713352ea9432f4a821e0b064b487c5b9}{\+\_\+\+\_\+construct}} ()
+\item 
+\mbox{\hyperlink{class_order_model_a07b693d2c89506f0f3f2596305fc2d57}{insert\+Order}} (\$data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_order_model}{Order\+Model} Class
+
+This class provides functionality to manage orders, including inserting orders into the database. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_order_model_a713352ea9432f4a821e0b064b487c5b9}\index{OrderModel@{OrderModel}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!OrderModel@{OrderModel}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \label{class_order_model_a713352ea9432f4a821e0b064b487c5b9} 
+Order\+Model\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Constructor
+
+Initializes the database connection. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_order_model_a07b693d2c89506f0f3f2596305fc2d57}\index{OrderModel@{OrderModel}!insertOrder@{insertOrder}}
+\index{insertOrder@{insertOrder}!OrderModel@{OrderModel}}
+\doxysubsubsection{\texorpdfstring{insertOrder()}{insertOrder()}}
+{\footnotesize\ttfamily \label{class_order_model_a07b693d2c89506f0f3f2596305fc2d57} 
+Order\+Model\+::insert\+Order (\begin{DoxyParamCaption}\item[{}]{\$data}{}\end{DoxyParamCaption})}
+
+Insert a new order into the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$data} & Associative array containing the order data\+:
+\begin{DoxyItemize}
+\item {\ttfamily food\+\_\+name} (string)\+: Name of the food item.
+\item {\ttfamily price} (float)\+: Price per unit of the food item.
+\item {\ttfamily quantity} (int)\+: Quantity of the food item ordered.
+\item {\ttfamily total\+\_\+price} (float)\+: Total price of the order.
+\item {\ttfamily customer\+\_\+name} (string)\+: Name of the customer.
+\item {\ttfamily contact} (string)\+: Customer\textquotesingle{}s contact number.
+\item {\ttfamily email} (string)\+: Customer\textquotesingle{}s email address.
+\item {\ttfamily address} (string)\+: Delivery address.
+\item {\ttfamily status} (string)\+: Current status of the order. 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true if the order was inserted successfully, false otherwise. 
+\end{DoxyReturn}
+Bind parameters to the SQL query\+:
+\begin{DoxyItemize}
+\item {\ttfamily food\+\_\+name} (string)\+: Name of the food item.
+\item {\ttfamily price} (float)\+: Price per unit of the food item.
+\item {\ttfamily quantity} (int)\+: Quantity of the food item ordered.
+\item {\ttfamily total\+\_\+price} (float)\+: Total price of the order.
+\item {\ttfamily customer\+\_\+name} (string)\+: Customer\textquotesingle{}s name.
+\item {\ttfamily contact} (string)\+: Customer\textquotesingle{}s contact number.
+\item {\ttfamily email} (string)\+: Customer\textquotesingle{}s email address.
+\item {\ttfamily address} (string)\+: Delivery address.
+\item {\ttfamily status} (string)\+: Current status of the order.
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+application/models/\mbox{\hyperlink{order-model_8php}{order-\/model.\+php}}\end{DoxyCompactItemize}

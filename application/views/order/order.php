@@ -1,9 +1,30 @@
 
 <?php
+/**
+ * This script handles the food order form for FoodieGo.
+ * It fetches food details from the database based on a given food ID.
+ * 
+ * PHP Version: 7.4 or higher
+ *
+ * @category Food_Order
+ * @package  FoodieGo
+ * @author  Pahela Chakma 
+ * @license  MIT License
+ * @link     
+ */
 include_once $_SERVER['DOCUMENT_ROOT'] . '/FoodieGo/system/database/DB_config.php';
 
+// Database instance and connection
 $dbInstance = Database::getInstance();
 $conn = $dbInstance->getConnection();
+
+/**
+ * Fetch food details based on the provided food ID.
+ * 
+ * @global mysqli $conn The database connection instance.
+ * 
+ * @throws Exception Redirects to the homepage if the food ID is invalid.
+ */
 
 if (isset($_GET['food_id'])) {
     $food_id = $_GET['food_id'];
@@ -78,7 +99,7 @@ if (isset($_GET['food_id'])) {
     </div>
 </section>
 
-<!-- Modal -->
+
 <div id="confirmationModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -257,29 +278,42 @@ if (isset($_GET['food_id'])) {
 </style>
 
 <script>
+    /**
+     * Open the confirmation modal if the form is valid.
+     */
     function openModal() {
         if (validateForm()) {
             document.getElementById('confirmationModal').style.display = 'block';
         }
     }
-
+    /**
+     * Close the confirmation modal.
+     */
     
     function closeModal() {
         document.getElementById('confirmationModal').style.display = 'none';
     }
-
+    /**
+     * Submit the order form.
+     */
 
     function submitOrder() {
         document.getElementById('orderForm').submit();
     }
-
+    /**
+     * Cancel the order and redirect to the homepage.
+     */
     
     function cancelOrder() {
         closeModal();
         alert('Your order has been canceled.');
         window.location.href = '<?php echo SITEURL; ?>'; 
     }
-
+    /**
+     * Validate the order form fields.
+     * 
+     * @returns {boolean} Returns true if the form is valid, false otherwise.
+     */
     
     function validateForm() {
         const fullName = document.getElementById('full_name').value.trim();
