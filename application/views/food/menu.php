@@ -3,6 +3,12 @@
 require_once 'application/views/templates/header.php';  
 ?>
 
+<!--
+  @file food_menu.php
+  @brief This file contains the HTML structure for displaying a food search form and a food menu list with individual food items.
+  It handles user interaction with the food menu and provides a search functionality.
+-->
+
 <section class="food-search text-center">
     <div class="container">
         <!-- Food search form allowing users to search for food items -->
@@ -19,11 +25,14 @@ require_once 'application/views/templates/header.php';
     <div class="container">
         <h2 class="text-center">Food Menu</h2>  <!-- Heading for the food menu section -->
 
-        <?php if (!empty($food_items)): ?>  <!-- Check if there are food items to display -->
-            <?php foreach ($food_items as $food): ?>  <!-- Loop through each food item -->
+        <!-- Check if there are food items to display -->
+        <?php if (!empty($food_items)): ?>
+            <!-- Loop through each food item -->
+            <?php foreach ($food_items as $food): ?>
                 <div class="food-menu-box">  <!-- Food menu item box -->
                     <div class="food-menu-img">
-                        <?php if (empty($food['image_name'])): ?>  <!-- Check if there is no image for the food item -->
+                        <!-- Check if there is no image for the food item -->
+                        <?php if (empty($food['image_name'])): ?>
                             <div class='error'>Image not available.</div>  <!-- Show a placeholder message if no image -->
                         <?php else: ?>
                             <!-- Display the food image if available, with lazy loading for better performance -->

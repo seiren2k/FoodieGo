@@ -1,0 +1,74 @@
+\doxysection{index.\+php File Reference}
+\hypertarget{index_8php}{}\label{index_8php}\index{index.php@{index.php}}
+
+
+This file is the entry point of the application, handling routing and controlling various requests for the Foodie\+Go application.  
+
+
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{index_8php_ad39801cabfd338dc5524466fe793fda9}{BASEPATH}} true
+\item 
+\mbox{\hyperlink{index_8php_abb35c8495a232b510389fa6d7b15d38a}{\$request}} = \$\+\_\+\+SERVER\mbox{[}\textquotesingle{}REQUEST\+\_\+\+URI\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{index_8php_a5e0157e4beef4ad984a25d2a54293184}{\$base\+\_\+path}} = \textquotesingle{}/Foodie\+Go/\textquotesingle{}
+\item 
+\mbox{\hyperlink{index_8php_a4d291d902cb789bb882c9311bff23b87}{\$request\+\_\+parts}} = explode(\textquotesingle{}?\textquotesingle{}, \$request)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file is the entry point of the application, handling routing and controlling various requests for the Foodie\+Go application. 
+
+The script defines the base path, starts the session, includes configuration files, and processes incoming requests to route to appropriate controllers and actions. It supports various routes including the home page, menu, login, register, and more. 
+
+Definition in file \mbox{\hyperlink{index_8php_source}{index.\+php}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{index_8php_a5e0157e4beef4ad984a25d2a54293184}\index{index.php@{index.php}!\$base\_path@{\$base\_path}}
+\index{\$base\_path@{\$base\_path}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$base\_path}{\$base\_path}}
+{\footnotesize\ttfamily \label{index_8php_a5e0157e4beef4ad984a25d2a54293184} 
+\$base\+\_\+path = \textquotesingle{}/Foodie\+Go/\textquotesingle{}}
+
+
+
+Definition at line \mbox{\hyperlink{index_8php_source_l00026}{26}} of file \mbox{\hyperlink{index_8php_source}{index.\+php}}.
+
+\Hypertarget{index_8php_abb35c8495a232b510389fa6d7b15d38a}\index{index.php@{index.php}!\$request@{\$request}}
+\index{\$request@{\$request}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$request}{\$request}}
+{\footnotesize\ttfamily \label{index_8php_abb35c8495a232b510389fa6d7b15d38a} 
+\$request = \$\+\_\+\+SERVER\mbox{[}\textquotesingle{}REQUEST\+\_\+\+URI\textquotesingle{}\mbox{]}}
+
+Include application settings Include database connection settings
+
+Remove base path from the URL
+
+Remove query parameters from the request URL 
+
+Definition at line \mbox{\hyperlink{index_8php_source_l00023}{23}} of file \mbox{\hyperlink{index_8php_source}{index.\+php}}.
+
+\Hypertarget{index_8php_a4d291d902cb789bb882c9311bff23b87}\index{index.php@{index.php}!\$request\_parts@{\$request\_parts}}
+\index{\$request\_parts@{\$request\_parts}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$request\_parts}{\$request\_parts}}
+{\footnotesize\ttfamily \label{index_8php_a4d291d902cb789bb882c9311bff23b87} 
+\$request\+\_\+parts = explode(\textquotesingle{}?\textquotesingle{}, \$request)}
+
+
+
+Definition at line \mbox{\hyperlink{index_8php_source_l00030}{30}} of file \mbox{\hyperlink{index_8php_source}{index.\+php}}.
+
+\Hypertarget{index_8php_ad39801cabfd338dc5524466fe793fda9}\index{index.php@{index.php}!BASEPATH@{BASEPATH}}
+\index{BASEPATH@{BASEPATH}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{BASEPATH}{BASEPATH}}
+{\footnotesize\ttfamily \label{index_8php_ad39801cabfd338dc5524466fe793fda9} 
+const BASEPATH true}
+
+
+
+Definition at line \mbox{\hyperlink{index_8php_source_l00013}{13}} of file \mbox{\hyperlink{index_8php_source}{index.\+php}}.
+

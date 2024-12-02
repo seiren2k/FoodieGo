@@ -1,0 +1,98 @@
+\doxysection{index.\+php}
+\hypertarget{index_8php_source}{}\label{index_8php_source}\mbox{\hyperlink{index_8php}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00001}00001\ <?php}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00012}00012\ \textcolor{comment}{//\ Define\ BASEPATH\ to\ allow\ direct\ script\ access}}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00013}00013\ define(\textcolor{stringliteral}{'BASEPATH'},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00015}00015\ \textcolor{comment}{//\ Start\ the\ session\ to\ manage\ user\ sessions}}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00016}00016\ session\_start();}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00018}00018\ \textcolor{comment}{//\ Include\ configuration\ files\ for\ application\ and\ database}}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00019}00019\ require\_once\ \textcolor{stringliteral}{'application/config/application-\/config.php'};\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00020}00020\ require\_once\ \textcolor{stringliteral}{'application/config/database-\/config.php'};\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00022}00022\ \textcolor{comment}{//\ Get\ the\ requested\ URL\ (e.g.,\ /FoodieGo/menu)}}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00023}\mbox{\hyperlink{index_8php_abb35c8495a232b510389fa6d7b15d38a}{00023}}\ \mbox{\hyperlink{index_8php_abb35c8495a232b510389fa6d7b15d38a}{\$request}}\ =\ \$\_SERVER[\textcolor{stringliteral}{'REQUEST\_URI'}];}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00025}00025\ \textcolor{comment}{//\ Set\ base\ path\ for\ the\ application\ (e.g.,\ '/FoodieGo/')}}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00026}00026\ \$base\_path\ =\ \textcolor{stringliteral}{'/FoodieGo/'};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00027}00027\ \mbox{\hyperlink{index_8php_abb35c8495a232b510389fa6d7b15d38a}{\$request}}\ =\ str\_replace(\$base\_path,\ \textcolor{stringliteral}{''},\ \mbox{\hyperlink{index_8php_abb35c8495a232b510389fa6d7b15d38a}{\$request}});\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00029}00029\ \textcolor{comment}{//\ Extract\ any\ query\ parameters\ (e.g.,\ /food-\/details?id=123)}}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00030}00030\ \$request\_parts\ =\ explode(\textcolor{charliteral}{'?'},\ \mbox{\hyperlink{index_8php_abb35c8495a232b510389fa6d7b15d38a}{\$request}});}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00031}00031\ \mbox{\hyperlink{index_8php_abb35c8495a232b510389fa6d7b15d38a}{\$request}}\ =\ \$request\_parts[0];\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00033}00033\ \textcolor{comment}{//\ Basic\ routing\ mechanism\ to\ handle\ various\ requests}}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00034}00034\ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{index_8php_abb35c8495a232b510389fa6d7b15d38a}{\$request}})\ \{}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{''}:}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'/'}:}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00044}00044\ \ \ \ \ \ \ \ \ require\ \textcolor{stringliteral}{'application/controllers/food.php'};\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00045}00045\ \ \ \ \ \ \ \ \ \$controller\ =\ \textcolor{keyword}{new}\ Food();\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00046}00046\ \ \ \ \ \ \ \ \ \$controller-\/>menu();\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00048}00048\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{'menu'}:}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00057}00057\ \ \ \ \ \ \ \ \ require\ \textcolor{stringliteral}{'application/controllers/food.php'};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00058}00058\ \ \ \ \ \ \ \ \ \$controller\ =\ \textcolor{keyword}{new}\ Food();}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00059}00059\ \ \ \ \ \ \ \ \ \$controller-\/>menu();\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{'food-\/details'}:}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00071}00071\ \ \ \ \ \ \ \ \ require\ \textcolor{stringliteral}{'application/controllers/food.php'};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00072}00072\ \ \ \ \ \ \ \ \ \$controller\ =\ \textcolor{keyword}{new}\ Food();}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00073}00073\ \ \ \ \ \ \ \ \ \$id\ =\ \$\_GET[\textcolor{stringliteral}{'id'}]\ ??\ \textcolor{keyword}{null};\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\$id)\ \{}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \$controller-\/>details(\$id);\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00076}00076\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ header(\textcolor{stringliteral}{"{}Location:\ "{}}\ .\ SITEURL\ .\ \textcolor{stringliteral}{"{}menu"{}});\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00078}00078\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{'search'}:}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00088}00088\ \ \ \ \ \ \ \ \ require\ \textcolor{stringliteral}{'application/controllers/food.php'};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00089}00089\ \ \ \ \ \ \ \ \ \$controller\ =\ \textcolor{keyword}{new}\ Food();}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00090}00090\ \ \ \ \ \ \ \ \ \$controller-\/>search();\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00099}00099\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{'login'}:}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00100}00100\ \ \ \ \ \ \ \ \ require\ \textcolor{stringliteral}{'application/controllers/auth.php'};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00101}00101\ \ \ \ \ \ \ \ \ \$controller\ =\ \textcolor{keyword}{new}\ Auth();}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00102}00102\ \ \ \ \ \ \ \ \ \$controller-\/>login();\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00111}00111\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{'register'}:}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00112}00112\ \ \ \ \ \ \ \ \ require\ \textcolor{stringliteral}{'application/controllers/auth.php'};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00113}00113\ \ \ \ \ \ \ \ \ \$controller\ =\ \textcolor{keyword}{new}\ Auth();}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00114}00114\ \ \ \ \ \ \ \ \ \$controller-\/>register();\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00123}00123\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{'logout'}:}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00124}00124\ \ \ \ \ \ \ \ \ require\ \textcolor{stringliteral}{'application/controllers/auth.php'};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00125}00125\ \ \ \ \ \ \ \ \ \$controller\ =\ \textcolor{keyword}{new}\ Auth();}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00126}00126\ \ \ \ \ \ \ \ \ \$controller-\/>logout();\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00135}00135\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{'check-\/auth'}:}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00136}00136\ \ \ \ \ \ \ \ \ require\ \textcolor{stringliteral}{'application/controllers/auth.php'};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00137}00137\ \ \ \ \ \ \ \ \ \$controller\ =\ \textcolor{keyword}{new}\ Auth();}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00138}00138\ \ \ \ \ \ \ \ \ \$controller-\/>check\_auth();\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00139}00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00147}00147\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{'order'}:}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00148}00148\ \ \ \ \ \ \ \ \ require\ \textcolor{stringliteral}{'application/controllers/order.php'};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00149}00149\ \ \ \ \ \ \ \ \ \$controller\ =\ \textcolor{keyword}{new}\ Order();}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00150}00150\ \ \ \ \ \ \ \ \ \$controller-\/>create();\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00159}00159\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{'admin/dashboard'}:}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00160}00160\ \ \ \ \ \ \ \ \ require\ \textcolor{stringliteral}{'application/controllers/admin.php'};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00161}00161\ \ \ \ \ \ \ \ \ \$controller\ =\ \textcolor{keyword}{new}\ Admin();}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00162}00162\ \ \ \ \ \ \ \ \ \$controller-\/>dashboard();\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00163}00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00171}00171\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00172}00172\ \ \ \ \ \ \ \ \ http\_response\_code(404);\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00173}00173\ \ \ \ \ \ \ \ \ require\ \textcolor{stringliteral}{'application/views/404.php'};\ \ }
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00175}00175\ \}}
+\DoxyCodeLine{\Hypertarget{index_8php_source_l00176}00176\ ?>}
+
+\end{DoxyCode}
