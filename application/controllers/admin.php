@@ -1,11 +1,25 @@
 <?php
+/**
+ * @file admin.php
+ * @brief Controller for admin adding and deleteing food items.
+ * 
+ * This controller handles functionalities such as adding food items, deleting food items.
+ */
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
+/**
+ * @class Admin
+ * @brief Handles admin-related functionalities.
+ */
 class Admin {
-    private $db;
-    private $food_model;
-    
-    // Load admin model
+    private $db;          /**< @var object $db Database connection instance */
+    private $food_model;  /**< @var object $food_model Model for managing food items */
+
+    /**
+     * Constructor to initialize Admin controller.
+     * Loads the Admin_model and starts session if not already started.
+     */
     public function __construct() {
         require_once __DIR__ . '/../models/admin-model.php';
         $this->food_model = new Admin_model();
@@ -16,7 +30,10 @@ class Admin {
         }
     }
 
-    // Existing functionality: Display menu
+    /**
+     * Display the food menu.
+     * Fetches active food items and loads the menu view with the retrieved data.
+     */
     public function menu() {
         // Fetch food items
         $sql = "SELECT f.*, c.title as category_name 
@@ -45,8 +62,10 @@ class Admin {
         require_once 'application/views/food/menu.php';
     }
     
-
-    // Existing functionality: Display food details
+    /**
+     * Display details of a specific food item.
+     * @param int $id The ID of the food item to display.
+     */
     public function details($id) {
         $id = mysqli_real_escape_string($this->db, $id);
         $sql = "SELECT f.*, c.title as category_name 
@@ -63,11 +82,13 @@ class Admin {
 
         $data['food_item'] = $food_item;
         $data['siteurl'] = SITEURL;
-        extract($data); // This makes variables available to the view
+        extract($data); // Makes variables available to the view
         require_once 'application/views/food/details.php';
     }
 
-    // New functionality: Add food item
+    /**
+     * Add a new food item to the database.
+     */
     public function add() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $title = $_POST['title'] ?? '';
@@ -93,24 +114,23 @@ class Admin {
             }
         }
     
-        // Updated view location
+        // Load the view for adding food items
         require_once __DIR__ . '/../views/admin/add-food.php';
     }
     
-
-    // New functionality: Delete food item
+    /**
+     * Delete a food item from the database.
+     */
     public function delete() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'] ?? '';
     
             // Call the model to delete the food item
             $result = $this->food_model->delete_food($id);
-    
+            // Show appropriate success or error message 
             if ($result) {
-                // Set a session variable for the success message
                 $_SESSION['message'] = "Food item with ID $id deleted successfully!";
             } else {
-                // Set a session variable for the error message
                 $_SESSION['message'] = "Failed to delete food item with ID $id.";
             }
     
@@ -122,6 +142,4 @@ class Admin {
         // If accessed directly, redirect to the delete-food page
         require_once __DIR__ . '/../views/admin/delete-food.php';
     }
-    
-    
 }
