@@ -21,6 +21,11 @@ if (!defined('SITEURL')) {
 
 // Mock session handling
 if (!function_exists('session_start')) {
+    /**
+     * Starts a session if it hasn't already been started.
+     * 
+     * This is a mock implementation to ensure session functionality is available during tests.
+     */
     function session_start() {
         if (session_status() === PHP_SESSION_NONE) {
             $_SESSION = [];
@@ -29,19 +34,44 @@ if (!function_exists('session_start')) {
 }
 
 if (!function_exists('session_destroy')) {
+    /**
+     * Destroys the current session and clears session data.
+     * 
+     * This is a mock implementation to ensure session functionality is available during tests.
+     */
     function session_destroy() {
         $_SESSION = [];
     }
 }
 
 /**
+ * Unit tests for the Auth class in the FoodieGo application.
+ * 
+ * This class contains tests for authentication functionality, including login 
+ * with valid and invalid credentials, and handling of session data.
+ * 
  * @covers \FoodieGo\Controllers\Auth
  */
 class AuthTest extends TestCase
 {
+    /**
+     * @var Auth The instance of the Auth controller being tested.
+     */
     private $auth;
+
+    /**
+     * @var Auth_Model The mocked instance of the Auth_Model used for testing.
+     */
     private $auth_model;
 
+    /**
+     * Sets up the test environment before each test method is run.
+     * 
+     * Initializes a fresh session and prepares the Auth controller with a mocked 
+     * Auth_Model.
+     * 
+     * @return void
+     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -68,7 +98,11 @@ class AuthTest extends TestCase
     }
 
     /**
-     * Debugging method to verify class loading
+     * Test if the required classes exist.
+     * 
+     * This test checks if the Auth and Auth_Model classes are properly loaded.
+     * 
+     * @return void
      */
     public function testClassesExist(): void
     {
@@ -81,7 +115,12 @@ class AuthTest extends TestCase
     }
 
     /**
-     * Test login with valid user credentials
+     * Test login functionality with valid user credentials.
+     * 
+     * This test simulates a login attempt with valid user credentials and 
+     * checks if the session is properly set with user data.
+     * 
+     * @return void
      */
     public function testLoginWithValidUserCredentials(): void
     {
@@ -117,7 +156,12 @@ class AuthTest extends TestCase
     }
 
     /**
-     * Test login with valid admin credentials
+     * Test login functionality with valid admin credentials.
+     * 
+     * This test simulates a login attempt with valid admin credentials and 
+     * checks if the session is properly set with admin data.
+     * 
+     * @return void
      */
     public function testLoginWithValidAdminCredentials(): void
     {
@@ -152,7 +196,12 @@ class AuthTest extends TestCase
     }
 
     /**
-     * Test login with invalid credentials
+     * Test login functionality with invalid credentials.
+     * 
+     * This test simulates a login attempt with invalid credentials and 
+     * ensures that no session data is set and an appropriate error message is returned.
+     * 
+     * @return void
      */
     public function testLoginWithInvalidCredentials(): void
     {
@@ -178,7 +227,12 @@ class AuthTest extends TestCase
     }
 
     /**
-     * Test login with empty fields
+     * Test login functionality with empty fields.
+     * 
+     * This test simulates a login attempt where the username and password fields 
+     * are empty, and checks if an appropriate error message is returned.
+     * 
+     * @return void
      */
     public function testLoginWithEmptyFields(): void
     {
@@ -197,6 +251,13 @@ class AuthTest extends TestCase
         $this->assertStringContainsString('Please fill in all fields', $output);
     }
 
+    /**
+     * Cleans up after each test method is run.
+     * 
+     * This method resets the POST data and session data after each test.
+     * 
+     * @return void
+     */
     protected function tearDown(): void
     {
         parent::tearDown();
