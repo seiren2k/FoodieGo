@@ -1,5 +1,6 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+if (!defined('BASEPATH')) define('BASEPATH', true);
+
 
 class Admin_model {
     private $db;
