@@ -1,5 +1,9 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');  // Prevent direct script access
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+namespace FoodieGo\Models;
+
+use FoodieGo\Config\Database;
 
 require_once __DIR__ . '/../config/database-config.php';  // Include database configuration
 

@@ -1,0 +1,30 @@
+{
+    "name": "seiren2k/foodiego",
+    "description": "Restaurant Food Ordering Web Application",
+    "type": "project",
+    "require": {
+        "php": ">=8.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "FoodieGo\\Controllers\\": "application/controllers/",
+            "FoodieGo\\Models\\": "application/models/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    }
+}
