@@ -1,4 +1,14 @@
-<?php require_once __DIR__ . '/../templates/header.php'; ?>
+<?php
+/**
+ * @file add-food.php
+ * @brief View for adding a new food item.
+ * 
+ * This file displays the form for adding a new food item, including fields
+ * for title, description, price, image, category ID, featured, and active status.
+ */
+
+require_once __DIR__ . '/../templates/header.php'; 
+?>
 
 <div class="container" style="width: 50%; margin: 0 auto; padding: 30px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); background-color: #d4edda;">
     <h2 class="form-title" style="text-align: center; color: #155724; font-family: Arial, sans-serif; margin-bottom: 20px; font-size: 35px; font-weight: bold; padding: 10px; border-radius: 5px;">Add Food Item</h2>
