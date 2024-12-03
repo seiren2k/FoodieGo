@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['else_0',['else',['../order_8php.html#aa06086b3b9a955a784ea428d9c863d38',1,'else:&#160;order.php'],['../search_8php.html#a3a1f22cf597dc5c43337ae3dde85823f',1,'else:&#160;search.php']]]
+  ['_28_20_24row_3dmysqli_5ffetch_5fassoc_28_20_24result_29_29_0',['( $row=mysqli_fetch_assoc( $result))',['../food__menu__view_8php.html#abc240f811982cbac0222677df4dfec64',1,'food_menu_view.php']]]
 ];

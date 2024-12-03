@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['installedversions_0',['InstalledVersions',['../class_composer_1_1_installed_versions.html',1,'Composer']]]
+  ['foodcontroller_0',['FoodController',['../class_food_controller.html',1,'']]],
+  ['foodmodel_1',['FoodModel',['../class_food_model.html',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['findfile_0',['findFile',['../class_composer_1_1_autoload_1_1_class_loader.html#a4f8534c9205630e4b9c61e47ebf2867a',1,'Composer::Autoload::ClassLoader']]]
+  ['insert_5forder_0',['insert_order',['../order-model_8php.html#af453e05f7ff08515336dd5e6ad52b6e5',1,'order-model.php']]]
 ];
